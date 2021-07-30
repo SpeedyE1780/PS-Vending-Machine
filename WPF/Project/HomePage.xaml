@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Project.HomePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Project"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+
+    <StackPanel Orientation="Vertical">
+
+        <Label Margin="0,0,0,20">
+            <TextBlock TextDecorations="Underline">
+                    Popular
+            </TextBlock>
+        </Label>
+        <ScrollViewer Name="scrollPopular" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+            <StackPanel Name="panelPopular" Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="5,0,5,0"/>
+                    </Style>
+                </StackPanel.Resources>
+
+            </StackPanel>
+        </ScrollViewer>
+
+
+        <Label Margin="0,50,0,20">
+            <TextBlock TextDecorations="UnderLine">
+                    New Release
+            </TextBlock>
+        </Label>
+        <ScrollViewer Name="scrollNew" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+            <StackPanel Name="panelNew" Orientation="Horizontal">
+
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="5,0,5,0"/>
+                    </Style>
+                </StackPanel.Resources>
+
+            </StackPanel>
+        </ScrollViewer>
+
+    </StackPanel>
+</UserControl>

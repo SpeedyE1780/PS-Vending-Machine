@@ -1,0 +1,74 @@
+﻿<Window x:Class="Project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="MainWindow" Height="1080" Width="1920" PreviewKeyDown="ScrollGames">
+
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="50"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="50"/>
+            <Setter Property="Background" Value="#002566"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        
+    </Window.Resources>
+
+    <DockPanel Name="screenDock" VerticalAlignment="Top" Background="#030130">
+
+        <ToolBar DockPanel.Dock="Top" Background="#001c4c" Height="50">
+            <Button Name="btnOpenMenu" Height="50" Width="50" Click="OpenSideMenu">
+                <Image Source="Icons/Menu.png" Stretch="Fill"/>
+            </Button>
+            <TextBox Name="searchBox" Foreground="White" FontSize="35" Width="750" Height="50" Margin="100,0,0,0" KeyDown="Search" TextChanged="searchBox_TextChanged">
+            </TextBox>
+            <ComboBox Name="cmbGenre" Focusable="False" Background="#000032" Foreground="White" Text="FILTER" IsEditable="True" IsReadOnly="True" FontSize="30" Height="50" Width="250" Margin="50,0,50,0" MaxDropDownHeight="1000">
+            </ComboBox>
+            <ComboBox Name="cmbSort" Focusable="False" Background="#000032" Foreground="White" Text="SORT BY" IsEditable="True" IsReadOnly="True" FontSize="30" Height="50" Width="250">
+            </ComboBox>
+
+            <Button Name="compareButton" Foreground="White" FontSize="35" Width="250" Height="50" Content="Compare" Background="#CC7A00" Visibility="Hidden"/>
+        </ToolBar>
+
+        <StackPanel Name="sideMenu" Background="#002566" DockPanel.Dock="Left" Height="1000" Width="500">
+            <Image Source="Icons/User.png" Width="200" Height="200" Margin="5"/>
+            <Label Name="lbluserName" Content="Guest#322" HorizontalAlignment="Center"/>
+            
+            <StackPanel Orientation="Vertical">
+                <Button Name="btnSignIn" Content="SIGN IN ►" Click="ExpandSignIn"/>
+                <TextBox Name="userName" Height="0" FontSize="50" TextChanged="userName_TextChanged"/>
+                <PasswordBox Name="userPassword" Height="0" FontSize="50" PasswordChanged="userPassword_TextChanged"/>
+                <DockPanel Name="dockSignIn" Height="0">
+                    <Button DockPanel.Dock="Right" Content="SIGN IN" Click="SignIn"/>
+                    <TextBlock DockPanel.Dock="Left" Text="Trouble Signing in" TextDecorations="Underline" Margin="5" VerticalAlignment="Center"/>
+                </DockPanel>
+                <Button Name="btnSignUp" Content="CREATE ACCOUNT" Height="0" Click="SignUp"/>
+            </StackPanel>
+            
+            <Button Content="HOME PAGE" Click="OpenHomePage"/>
+            <Button Content="DEALS"/>
+            <Button Content="CART" Click="OpenCart"/>
+        </StackPanel>
+    </DockPanel>
+</Window>
